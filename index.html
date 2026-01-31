@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EvoPeriod – Period & Cycle Tracker</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+      margin: 0;
+      color: #222;
+      text-align: center;
+      -webkit-text-size-adjust: 100%;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255, 127, 127, 0.15),
+          #faf7fb
+        );
+    }
+
+    /* Flower overlay (SwiftUI ZStack style) */
+    .background-flower {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("flower.png");
+      background-repeat: no-repeat;
+      background-position: left top;
+      background-size: min(420px, 80vw);
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: auto;
+      padding:
+        env(safe-area-inset-top, 24px)
+        16px
+        env(safe-area-inset-bottom, 24px);
+    }
+
+    .logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 20px;
+      display: block;
+      margin: 0 auto 16px;
+    }
+
+    h1 {
+      font-size: clamp(26px, 6vw, 32px);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: clamp(16px, 4.5vw, 18px);
+      color: #555;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e9defa;
+      color: #5a2ea6;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Screenshots (mobile swipe) */
+    .screenshots {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      margin: 24px 0;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .screenshots img {
+      flex: 0 0 auto;
+      width: min(70vw, 200px);
+      border-radius: 16px;
+      scroll-snap-align: start;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    .features {
+      text-align: left;
+      margin: 24px 0;
+      padding-left: 16px;
+    }
+
+    .features li {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    /* Store buttons */
+    .store-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .playstore-disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .coming-soon {
+      font-size: 13px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    /* Embedded Google Form */
+    iframe {
+      width: 100%;
+      max-width: 100%;
+      height: 720px;
+      border: none;
+      margin-top: 16px;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #777;
+      margin-top: 24px;
+      padding-bottom: env(safe-area-inset-bottom, 16px);
+    }
+
+    @media (min-width: 768px) {
+      .screenshots img {
+        width: 180px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background flower -->
+  <div class="background-flower"></div>
+
+  <div class="container">
+
+    <!-- Logo -->
+    <img src="logo.png" alt="EvoPeriod Logo" class="logo" />
+
+    <!-- Badge -->
+    <a href="APP_STORE_LINK" class="badge">
+      Apple-approved • Launching soon
+    </a>
+
+    <h1>EvoPeriod</h1>
+    <p>A simple, private period & cycle tracker.</p>
+
+    <!-- Screenshots -->
+    <div class="screenshots">
+      <img src="s4.png" alt="App screenshot 4">
+      <img src="s1.png" alt="App screenshot 1">
+      <img src="s2.png" alt="App screenshot 2">
+      <img src="s3.png" alt="App screenshot 3">
+    </div>
+
+    <!-- Features -->
+    <ul class="features">
+      <li>🔒 Privacy-focused</li>
+      <li>📅 Period & cycle tracking</li>
+      <li>📊 Clear insights</li>
+      <li>🌸 Clean, calming design</li>
+      <li>🧠 Intelligent cycle predictions</li>
+      <li>🧬 Secure access with Face ID / Touch ID</li>
+      <li>📄 Export cycle reports for sharing</li>
+    </ul>
+
+    <!-- Store Buttons -->
+    <div class="store-buttons">
+      <a href="APP_STORE_LINK">
+        <img
+          src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+          height="48"
+          alt="Download on the App Store">
+      </a>
+
+      <div class="playstore-disabled">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+          height="48"
+          alt="Get it on Google Play">
+        <div class="coming-soon">Android coming soon</div>
+      </div>
+    </div>
+
+    <!-- Notify -->
+    <p>Get notified when EvoPeriod is live</p>
+
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfRQOoFzUoZg3623ypqiPtnA_ceHZHqgmig-QbDTIW0maoAbA/viewform?embedded=true" height="800">
+    </iframe>
+
+    <div class="footer">
+      You’ll receive only one launch update. No spam.
+    </div>
+
+  </div>
+</body>
+</html>
